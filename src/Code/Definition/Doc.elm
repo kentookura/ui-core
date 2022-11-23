@@ -414,7 +414,7 @@ view linkedCfg toggleFoldMsg docFoldToggles document =
 
                 CodeBlock lang code ->
                   case lang of 
-                    "latex" -> div [ class "rich source code", lang |> stringToClass |> class ] [ text "Hello World!"] (viewAtCurrentSectionLevel code) ]
+                    "latex" -> div [ class "rich source code", lang |> stringToClass |> class ] [ text "Hello World!"] 
                     _ -> div [ class "rich source code", lang |> stringToClass |> class ] [ UI.codeBlock [] (viewAtCurrentSectionLevel code) ]
 
                 Bold d ->
