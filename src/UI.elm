@@ -4,7 +4,16 @@ import Html exposing (Attribute, Html, code, div, hr, pre, span, strong, text)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 import UI.Icon as Icon
+import Katex as K exposing ( Latex, human, inline, display)
 
+displayMath : List (Attribute msg) -> Html msg -> Html msg
+displayMath attrs code_ = pre attrs [ code [] [code_ ] ]
+
+  --let htmlGenerator isDisplayMode stringLatex = case isDisplayMode of
+  --      Just True -> div [] [text stringLatex ]
+  --      _ -> span [] [ text stringLatex]
+  --in
+  --  passage |> List.map (K.generate htmlGenerator) |> div []
 
 codeBlock : List (Attribute msg) -> Html msg -> Html msg
 codeBlock attrs code_ =
