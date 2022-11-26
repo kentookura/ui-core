@@ -29,9 +29,6 @@
   --color-sidebar-tooltip-border: var(--color-gray-darken-10);
 
   display: flex;
-  flex: 1;
-  flex-direction: column;
-  position: relative;
   overflow-y: auto;
   overflow-x: clip;
   background: var(--color-sidebar-bg);
@@ -57,7 +54,7 @@
 
   --u-color_divider: var(--color-sidebar-divider);
 
-  transition: translate 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .sidebar .button {
@@ -243,21 +240,28 @@
   width: auto;
 }
 
+.sidebar .sidebar_expanded {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: clip;
+}
+
 .sidebar .sidebar_collapsed {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
   background: var(--color-sidebar-bg);
-  width: fit-content;
   padding: 0.25rem;
-  padding-left: 0.5rem;
-  margin: 0.5rem;
-  border-radius: var(--border-radius-base);
-  position: absolute;
-  left: var(--c-width_sidebar);
   white-space: nowrap;
-  transition: opacity 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar .sidebar_collapsed:has(.sidebar_collapsed_context) {
+  padding-left: 0.5rem;
 }
 
 .sidebar .sidebar_collapsed .sidebar_collapsed_actions {
