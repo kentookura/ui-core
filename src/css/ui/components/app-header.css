@@ -92,7 +92,6 @@
   flex-direction: row;
   align-items: center;
   color: var(--color-app-header-text);
-  margin-right: 2.5rem;
 }
 
 #app-header .app-title h1 {
@@ -147,6 +146,11 @@
   margin-left: auto;
   justify-self: flex-end;
   align-items: center;
+  gap: 0.5rem;
+}
+
+#app-header .right-side .min-md,
+#app-header .right-side .max-md {
   gap: 0.5rem;
 }
 

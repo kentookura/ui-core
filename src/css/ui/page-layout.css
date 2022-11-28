@@ -302,11 +302,46 @@
 }
 
 @media only screen and (--u-viewport_max-lg) {
-  .page.sidebar-toggled {
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "main-sidebar page-content";
-    position: relative;
-    --c-width_sidebar: var(--c-width_sidebar_regular);
+  .page.sidebar-edge-to-edge-layout,
+  .page.sidebar-left-content-layout {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "page-content" "page-footer";
+  }
+
+  .page #main-sidebar {
+    position: absolute;
+  }
+
+  .page:not(.sidebar-toggled) #main-sidebar .sidebar_collapsed {
+    display: flex;
+    opacity: 1;
+  }
+
+  .page:not(.sidebar-toggled) #main-sidebar {
+    height: fit-content;
+    width: fit-content;
+    padding: 0;
+    margin: 0.5rem;
+    border-radius: var(--border-radius-base);
+  }
+
+  .page:not(.sidebar-toggled) #main-sidebar .sidebar_expanded {
+    display: none;
+  }
+
+  .page.sidebar-toggled #main-sidebar {
+    height: stretch;
+  }
+
+  .page.sidebar-toggled #main-sidebar .sidebar_collapsed {
+    opacity: 0;
+    display: none;
+  }
+
+  .page.edge-to-edge-layout .page-content,
+  .page.sidebar-edge-to-edge-layout .page-content {
+    padding: 1rem 0 0 0;
   }
 
   .page-content {
@@ -336,11 +371,6 @@
     padding: 3rem 1rem;
   }
 
-  .page.edge-to-edge-layout .page-content,
-  .page.sidebar-edge-to-edge-layout .page-content {
-    padding: 0;
-  }
-
   .page.sidebar-left-content-layout .page-content .columns {
     width: initial;
   }
@@ -358,37 +388,6 @@
 
   .page .page-footer .separator:first-of-type {
     display: none;
-  }
-}
-
-@media only screen and (--u-viewport_max-md) {
-  .page.sidebar-edge-to-edge-layout,
-  .page.sidebar-left-content-layout {
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-template-areas:
-      "page-content"
-      "page-footer";
-  }
-  .page.sidebar-left-content-layout.sidebar-toggled .page-content,
-  .page.sidebar-edge-to-edge-layout.sidebar-toggled .page-content {
-    padding-left: 0;
-  }
-
-  .page.sidebar-edge-to-edge-layout.sidebar-toggled,
-  .page.sidebar-left-content-layout.sidebar-toggled {
-    position: relative;
-  }
-
-  #main-sidebar {
-    position: absolute;
-    translate: -100%;
-    bottom: 0;
-    top: 0;
-  }
-
-  .page.sidebar-toggled #main-sidebar {
-    translate: 0%;
   }
 }
 
@@ -410,10 +409,6 @@
 
   .page.sidebar-toggled {
     --c-width_sidebar: var(--c-width_sidebar_full);
-  }
-
-  .page.sidebar-toggled .sidebar .sidebar-section.sidebar-section_scrollable {
-    margin-bottom: 0;
   }
 
   .page.sidebar-toggled .page-content {

@@ -38,6 +38,65 @@
   --u-viewport_xl: 1280px;
 }
 
+.min-xl,
+.max-xl,
+.min-lg,
+.max-lg,
+.min-md,
+.max-md,
+.min-sm,
+.max-sm {
+  display: none;
+}
+
+@media only screen and (--u-viewport_min-xl) {
+  .min-xl {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_max-xl) {
+  .max-xl {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_min-lg) {
+  .min-lg {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_max-lg) {
+  .max-lg {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_min-md) {
+  .min-md {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_max-md) {
+  .max-md {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_min-sm) {
+  .min-sm {
+    display: inherit;
+  }
+}
+
+@media only screen and (--u-viewport_max-sm) {
+  .max-sm {
+    display: inherit;
+  }
+}
+
 @import "./ui/colors.css";
 @import "./ui/fonts.css";
 @import "./ui/base.css";
